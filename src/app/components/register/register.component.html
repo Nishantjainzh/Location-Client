@@ -1,0 +1,42 @@
+<div class="main">
+    <div class="row">
+     <div class="col-lg-5 shadow p-4 mx-auto">
+         <form (ngSubmit)="register()">
+             <p class="display-4">Registration form</p>
+         <hr>
+          <div class="form-group mt-4">
+              <label for="">First Name: </label>
+              <input type="text" class="form-control" [(ngModel)]="user.firstName" name="firstName">
+          </div>
+          <div class="form-group mt-4">
+              <label for="">Last Name: </label>
+              <input type="text" class="form-control" [(ngModel)]="user.lastName" name="lastName">
+          </div>
+          <div class="form-group mt-4">
+              <label for="">Email: </label>
+              <input type="email" class="form-control" [(ngModel)]="user.email" name="email">
+          </div>
+          <div class="form-group mt-4">
+              <label for="">Password: </label>
+              <input type="password" class="form-control" [(ngModel)]="user.password" name="password">
+          </div>
+          <div class="form-group mt-4">                                                     
+             <label for="">Address: </label>
+             <input type="text" class="form-control" #addr (keyup)="onAddressType(addr.value)" [(ngModel)]="selectedAddresses"  name="address">
+         </div>
+
+         <div class="list-group" *ngIf="addresses">
+            <div *ngFor="let address of addresses.copResults" (click)="getClickAddress(address.formattedAddress)">
+                <li>{{address.formattedAddress}}</li>
+            </div>
+         </div>
+
+         
+         <div class="form-group mt-4">
+             <input type="submit" class="btn btn-success" value="Submit">
+         </div>
+         </form>
+     </div>
+    </div>
+ </div>
+ 
